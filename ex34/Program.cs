@@ -15,7 +15,6 @@ namespace ex34
 
             while (isOpen)
             {
-
                 Console.SetCursorPosition(0, 15);
                 Console.WriteLine($"Введенные числа: ");
 
