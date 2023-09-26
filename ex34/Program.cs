@@ -28,7 +28,8 @@ namespace ex34
                 }
 
                 Console.SetCursorPosition(0, 0);
-                Console.Write($"{CommandSum} - суммировать все введеные числа\n{CommandReset} - очистить список чисел\n{CommandExit} - выход из программы\n\n" +
+                Console.Write($"{CommandSum} - суммировать все введеные числа\n" +
+                    $"{CommandReset} - очистить список чисел\n{CommandExit} - выход из программы\n\n" +
                     $"Введите число или команду: ");
                 string input = Console.ReadLine();
 
