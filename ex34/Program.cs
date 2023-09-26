@@ -12,6 +12,7 @@ namespace ex34
         {
             const string CommandExit = "exit";
             const string CommandSum = "sum";
+            const string CommandReset = "reset";
 
             bool isOpen = true;
             List<int> numbers = new List<int>();
@@ -27,10 +28,11 @@ namespace ex34
                 }
 
                 Console.SetCursorPosition(0, 0);
-                Console.Write("Введите число, команду sum или exit: ");
+                Console.Write($"{CommandSum} - суммировать все введеные числа\n{CommandReset} - очистить список чисел\n{CommandExit} - выход из программы\n\n" +
+                    $"Введите число или команду: ");
                 string input = Console.ReadLine();
 
-                if (input != CommandExit && input != CommandSum)
+                if (input != CommandExit && input != CommandSum && input != CommandReset)
                 {
                     numbers.Add(Convert.ToInt32(input));
                 }
@@ -49,9 +51,12 @@ namespace ex34
                 {
                     isOpen = false;
                 }
-                else
+                else if (input == CommandReset)
                 {
-                    Console.WriteLine("Неверный ввод...");
+                    for (int i = numbers.Count - 1; i >= 0; i--)
+                    {
+                        numbers.RemoveAt(i);
+                    }
                 }
 
                 Console.ReadKey();
