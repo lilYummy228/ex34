@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ex34
 {
@@ -12,8 +9,8 @@ namespace ex34
         {
             const string CommandExit = "exit";
             const string CommandSum = "sum";
-            const string CommandReset = "reset";
 
+            int integer;
             bool isOpen = true;
             List<int> numbers = new List<int>();
 
@@ -28,41 +25,38 @@ namespace ex34
                 }
 
                 Console.SetCursorPosition(0, 0);
-                Console.Write($"{CommandSum} - суммировать все введеные числа\n" +
-                    $"{CommandReset} - очистить список чисел\n{CommandExit} - выход из программы\n\n" +
+                Console.Write($"{CommandSum} - суммировать все введеные числа\n{CommandExit} - выход из программы\n\n" +
                     $"Введите число или команду: ");
-                string input = Console.ReadLine();
+                var input = Console.ReadLine();
 
-                if (input != CommandExit && input != CommandSum && input != CommandReset)
-                {
-                    numbers.Add(Convert.ToInt32(input));
-                }
-                else if (input == CommandSum)
-                {
-                    int sum = 0;
-
-                    for (int i = 0; i < numbers.Count; i++)
-                    {
-                        sum += numbers[i];
-                    }
-
-                    Console.WriteLine($"Сумма введенных чисел равна: {sum}");
-                }
-                else if (input == CommandExit)
+                if (input == CommandExit)
                 {
                     isOpen = false;
                 }
-                else if (input == CommandReset)
+                else if (input == CommandSum)
                 {
-                    for (int i = numbers.Count - 1; i >= 0; i--)
-                    {
-                        numbers.RemoveAt(i);
-                    }
+                    SumNumbers(numbers);
+                }
+                else if(int.TryParse(input, out integer))
+                {
+                    numbers.Add(integer);
                 }
 
                 Console.ReadKey();
                 Console.Clear();
             }
+        }
+
+        static void SumNumbers(List<int> numbers)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum += numbers[i];
+            }
+
+            Console.WriteLine($"Сумма введенных чисел равна: {sum}");
         }
     }
 }
