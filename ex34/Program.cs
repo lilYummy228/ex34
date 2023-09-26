@@ -7,8 +7,8 @@ namespace ex34
     {
         static void Main(string[] args)
         {
-            const string CommandExit = "exit";
-            const string CommandSum = "sum";
+            const string CommandExit = "EXIT";
+            const string CommandSum = "SUM";
 
 
             bool isOpen = true;
@@ -28,7 +28,7 @@ namespace ex34
                 Console.SetCursorPosition(0, 0);
                 Console.Write($"{CommandSum} - суммировать все введеные числа\n{CommandExit} - выход из программы\n\n" +
                     $"Введите число или команду: ");
-                var input = Console.ReadLine();
+                var input = Console.ReadLine().ToUpper();
 
                 if (input == CommandExit)
                 {
@@ -38,9 +38,9 @@ namespace ex34
                 {
                     SumNumbers(numbers);
                 }
-                else if (int.TryParse(input, out int integer))
+                else if (int.TryParse(input, out int number))
                 {
-                    numbers.Add(integer);
+                    numbers.Add(number);
                 }
 
                 Console.ReadKey();
