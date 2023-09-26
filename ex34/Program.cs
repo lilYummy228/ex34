@@ -10,7 +10,6 @@ namespace ex34
             const string CommandExit = "EXIT";
             const string CommandSum = "SUM";
 
-
             bool isOpen = true;
             List<int> numbers = new List<int>();
 
