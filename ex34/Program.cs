@@ -10,12 +10,13 @@ namespace ex34
             const string CommandExit = "exit";
             const string CommandSum = "sum";
 
-            int integer;
+
             bool isOpen = true;
             List<int> numbers = new List<int>();
 
             while (isOpen)
             {
+
                 Console.SetCursorPosition(0, 15);
                 Console.WriteLine($"Введенные числа: ");
 
@@ -37,7 +38,7 @@ namespace ex34
                 {
                     SumNumbers(numbers);
                 }
-                else if(int.TryParse(input, out integer))
+                else if (int.TryParse(input, out int integer))
                 {
                     numbers.Add(integer);
                 }
